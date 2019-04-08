@@ -6,11 +6,26 @@
       "cmd": "bash ../ck_compile$#script_ext#$"
     }
   }, 
-  "compile_deps": {
+   "compile_deps": {
     "compiler": {
       "local": "yes", 
       "name": "C compiler", 
-      "tags": "compiler,lang-c"
+      "sort": 10, 
+      "tags": "compiler,lang-c,llvm,v3.9.0-ck-package"
+    }, 
+    "sw-prefetch-no-strides-plugin": {
+      "force_env_init": "yes", 
+      "local": "yes", 
+      "name": "SW Prefetch no strides plugin", 
+      "sort": 30, 
+      "tags": "compiler-plugin,llvm,sw-prefetch-no-strides-pass"
+    }, 
+    "sw-prefetch-plugin": {
+      "force_env_init": "yes", 
+      "local": "yes", 
+      "name": "SW Prefetch plugin", 
+      "sort": 20, 
+      "tags": "compiler-plugin,llvm,sw-prefetch-pass"
     }
   }, 
   "data_name": "nas-cg-omp", 
@@ -26,13 +41,11 @@
     "default": {
       "ignore_return_code": "no", 
       "run_time": {
-        "run_cmd_main": "..$#dir_sep#$ck_run$#script_ext#$", 
-        "run_cmd_out1": "stdout.log", 
-        "run_cmd_out2": "stderr.log", 
-        "run_output_files": [
-          "stdout.log", 
-          "stderr.log"
-        ]
+        "post_process_cmd": "python $#src_path_local#$/ck_postprocess_time.py", 
+        "post_process_via_ck": "yes", 
+        "run_cmd_main": "$#BIN_FILE#$", 
+        "run_cmd_out1": "tmp-output1.tmp", 
+        "run_cmd_out2": "tmp-output2.tmp"
       }
     }
   }, 
@@ -42,7 +55,8 @@
   }, 
   "tags": [
     "program", 
-    "lang-c"
+    "tocs2019", 
+    "sw-prefetch"
   ], 
   "target_file": "a", 
   "use_compile_script": "yes"

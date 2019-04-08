@@ -1,5 +1,5 @@
 #
-# Collective Knowledge (Experiment workfrom from TOCS2019 paper)
+# Collective Knowledge (Experiment workflow from TOCS2019 paper)
 #
 # See CK LICENSE.txt for licensing details
 # See CK COPYRIGHT.txt for copyright details
@@ -15,14 +15,14 @@ ck=None # Will be updated by CK (initialized CK kernel)
 # Local settings
 line='**********************************************************************************'
 line1='----------------------------------------------------------------------------------'
-flog='ck-log-reproduce-results-from-cgo2017-paper.txt'
+flog='ck-log-reproduce-results-from-tocs2019-paper.txt'
 fflog=''
 log_init=False
 
 form_name='wa_web_form'
 onchange='document.'+form_name+'.submit();'
 
-benchmarks=['nas-cg','nas-is','graph500-s16','graph500-s21','hashjoin-ph-2','hashjoin-ph-8','randacc','camel','kangaroo']
+benchmarks=['nas-cg','nas-is','graph500-s16','graph500-s21','hashjoin-ph-2','hashjoin-ph-8','randacc','camel','kangaroo','nas-is-omp','nas-cg-omp','hashjoin-ph-2-pthreads']
 
 
 ##############################################################################
@@ -1180,6 +1180,124 @@ def run(i):
                 log({'string':'Experiment failed ('+r['error']+')'})
 
     return {'return':0}
+
+
+        # Reproducing Figure 12 ###################################################################################
+
+
+    for x in [1, 2, 4]:
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['nas-cg-omp'],
+                  'env':{'CK_COMPILE_TYPE':'no', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'Reproducing experiments for Figure 12',
+                  'subtitle':'Validating nas-cg no prefetching:',
+                  'key':'figure-12-nas-cg-' + str(x) + "threads" + 'no-prefetching', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['nas-cg-omp'],
+                  'env':{'CK_COMPILE_TYPE':'auto', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'',
+                  'subtitle':'Validating nas-cg auto prefetching:',
+                  'key':'figure-12-nas-cg-' + str(x) + "threads" + 'auto', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['nas-cg-omp'],
+                  'env':{'CK_COMPILE_TYPE':'man', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'',
+                  'subtitle':'Validating nas-cg manual prefetching:',
+                  'key':'figure-12-nas-cg-' + str(x) + "threads" + 'man', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
+
+
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['nas-is-omp'],
+                  'env':{'CK_COMPILE_TYPE':'no', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'',
+                  'subtitle':'Validating nas-is no prefetching:',
+                  'key':'figure-12-nas-is-' + str(x) + "threads" + 'no-prefetching', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['nas-is-omp'],
+                  'env':{'CK_COMPILE_TYPE':'auto', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'',
+                  'subtitle':'Validating nas-is auto prefetching:',
+                  'key':'figure-12-nas-is-' + str(x) + "threads" + 'auto', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['nas-is-omp'],
+                  'env':{'CK_COMPILE_TYPE':'man', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'',
+                  'subtitle':'Validating nas-is manual prefetching:',
+                  'key':'figure-12-nas-is-' + str(x) + "threads" + 'man', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
+
+
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['hashjoin-ph-2-pthreads'],
+                  'env':{'CK_COMPILE_TYPE':'no', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'',
+                  'subtitle':'Validating hashjoin-ph-2 no prefetching:',
+                  'key':'figure-12-hashjoin-ph-2-' + str(x) + "threads" + 'no-prefetching', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['hashjoin-ph-2-pthreads'],
+                  'env':{'CK_COMPILE_TYPE':'auto', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'',
+                  'subtitle':'Validating hashjoin-ph-2 auto prefetching:',
+                  'key':'figure-12-hashjoin-ph-2-' + str(x) + "threads" + 'auto', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
+        r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
+                  'program_uoa':cfg['programs_uoa']['hashjoin-ph-2-pthreads'],
+                  'env':{'CK_COMPILE_TYPE':'man', OMP_NUM_THREADS=str(x)},
+                  'deps':deps,
+                  'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
+                  'title':'',
+                  'subtitle':'Validating hashjoin-ph-2 manual prefetching:',
+                  'key':'figure-12-hashjoin-ph-2-' + str(x) + "threads" + 'man', 'results':results})
+        if r['return']>0:
+            log({'string':''})
+            log({'string':'Experiment failed ('+r['error']+')'})
+
     
     
         # Reproducing Figure 13 ###################################################################################
@@ -1595,7 +1713,7 @@ def show(i):
                      figures[fig][bench][ext][duid]=res.get(vx,None)
 
     # Draw figures
-    h+='<i>Please, check the tendency, not exact match!</i><br>'
+    h+='<i>Please check the tendency, not the exact match!</i><br>'
     h+='<i> Prerecorded aarch64 results are for A57, not A53: In order architectures will perform similar to as shown in the paper.</i><br><br>'
     h+='<span style="color:#1f77b4">Blue color bars - results pre-recorded by the authors</span><br>'
     h+='<span style="color:#ff7f0e">Orange color bars - results by artifact evaluators</span><br>'

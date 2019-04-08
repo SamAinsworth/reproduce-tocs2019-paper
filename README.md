@@ -1,7 +1,7 @@
-Artefact Evaluation Reproduction for "Software Prefetching for Indirect Memory Accesses: A Microarchitectural Perspective", TOCS 2019, using CK. 
+Experimental Artefact for "Software Prefetching for Indirect Memory Accesses: A Microarchitectural Perspective", TOCS 2019, using CK. 
 ==================================================
 
-This repository contains artifacts and workflows
+This repository contains artefacts and workflows
 to reproduce experiments from the TOCS 2019 paper 
 by S. Ainsworth and T. M. Jones
 
@@ -33,7 +33,7 @@ Installation
 You can install this repository via CK as follows:
 
 ```
-$ ck pull repo --url=https://github.com/SamAinsworth/reproduce-cgo2017-paper
+$ ck pull repo --url=https://github.com/SamAinsworth/reproduce-tocs2019-paper
 ```
 
 If you already have CK installed, please update before use:
@@ -62,7 +62,7 @@ Running experimental workflows (reproducing figures)
 Run
 
 ```
-$ ck run workflow-from-cgo2017-paper
+$ ck run workflow-from-tocs2019-paper
 ```
 
 The script runs experiments from the paper, in order of figures (2,4-7). At the end of each experiment, times are output, along with the example values we achieved on Haswell (in the case of x86) or the A57-powered Nvidia TX1 (in the case of ARM64). Though we don't expect the overall times to be similar across different systems, the trends shown in the paper should be largely similar for a given class of microarchitecture.
@@ -70,7 +70,7 @@ The script runs experiments from the paper, in order of figures (2,4-7). At the 
 By default, the script above waits for user input at the end of each experiment. To turn this off, run with the --quiet option:
 
 ```
-$ ck run workflow-from-cgo2017-paper --quiet
+$ ck run workflow-from-tocs2019-paper --quiet
 ```
 
 If any unexpected behaviour is observed, please report it to the authors.
@@ -81,12 +81,12 @@ Validation of results
 To generate bar graphs of the data, run 
 
 ```
-$ ck dashboard workflow-from-cgo2017-paper
+$ ck dashboard workflow-from-tocs2019-paper
 ```
 
 This will output speedups for the data you have generated, and also graphs for prerecorded data for x86 (Haswell) and aarch64 (A57), but not aarch64 (A53).
 
-Results will also be output to ck-log-reproduce-results-from-cgo2017-paper.txt, in the directory in which you run the workflow.
+Results will also be output to ck-log-reproduce-results-from-tocs2019-paper.txt, in the directory in which you run the workflow.
 
 This file will include the results observed on your machine, and those observed on either Haswell or A57 for reference, depending on your target ISA.
 
@@ -95,45 +95,6 @@ While we do not expect absolute values to match, it is expected that overall tre
 Please note that the reference results on ARM64 systems when running on in-order architectures such at the A53 will still be from the A57, so are not expected to match up directly: you should instead compare ratios given in the paper itself.
 
 If anything in unclear, or any unexpected results occur, please report it to the authors.
-
-Manual validation (if problems with CK)
-=======================================
-
-for x86-64:
-
-```
-$ cd script/reproduce-cgo2017-paper
-```
-
-To compile:
-
-```
-$ ./compile_x86.sh
-```
-
-To run:
-
-```
-$ ./run_x86.sh
-```
-
-for ARM64:
-
-cross compilation for ARM64 on an x86-64 machine:
-
-```
-$ cd script/reproduce-cgo2017-paper
-$ ./compile_aarch64.sh
-```
-
-running on an ARM64 machine:
-
-```
-$ cd script/reproduce-cgo2017-paper
-$ ./run_arm.sh
-```
-
-Recompilation should not be necessary, as all binaries are included, but is provided as an option.
 
 Authors
 =======
