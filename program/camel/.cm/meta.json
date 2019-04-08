@@ -1,0 +1,75 @@
+{
+  "backup_data_uid": "2fc635034bf0bb4d", 
+  "build_compiler_vars": {}, 
+  "compile_cmds": {
+    "default": {
+      "cmd": "bash ../ck_compile$#script_ext#$"
+    }
+  }, 
+  "compile_deps": {
+    "compiler": {
+      "local": "yes", 
+      "name": "C compiler", 
+      "tags": "compiler,lang-c"
+    },
+    "sw-prefetch-no-strides-plugin": {
+      "force_env_init": "yes", 
+      "local": "yes", 
+      "name": "SW Prefetch no strides plugin", 
+      "sort": 30, 
+      "tags": "compiler-plugin,llvm,sw-prefetch-no-strides-pass"
+    }, 
+    "sw-prefetch-plugin": {
+      "force_env_init": "yes", 
+      "local": "yes", 
+      "name": "SW Prefetch plugin", 
+      "sort": 20, 
+      "tags": "compiler-plugin,llvm,sw-prefetch-pass"
+    }
+  }, 
+  "data_name": "camel", 
+  "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$", 
+  "main_language": "c", 
+    "misc": {
+    "available_types": [
+      "auto", 
+      "auto-nostride", 
+      "man", 
+      "offset", 
+      "offset-64-nostride", 
+      "no"
+    ]
+      }, 
+  "print_files_after_run": [
+    "stderr.log", 
+    "stdout.log"
+  ], 
+  "process_in_tmp": "yes", 
+  "program": "yes", 
+  "run_cmds": {
+    "default": {
+      "ignore_return_code": "no", 
+      "run_time": {
+        "run_cmd_main": "..$#dir_sep#$ck_run$#script_ext#$", 
+        "run_cmd_out1": "stdout.log", 
+        "run_cmd_out2": "stderr.log", 
+        "run_output_files": [
+          "stdout.log", 
+          "stderr.log"
+        ]
+      }
+    }
+  }, 
+  "run_vars": {
+    "CK_VAR1": 123, 
+    "CK_VAR2": 666
+  }, 
+  "tags": [
+    "program", 
+    "lang-c", 
+    "tocs2019", 
+    "sw-prefetch"
+  ], 
+  "target_file": "a", 
+  "use_compile_script": "yes"
+}

@@ -1,0 +1,10 @@
+{
+  "data_uid": "3049134a3c958b49", 
+  "data_name": "Artifacts to reproduce experiments from 2019 TOCS paper by S.Ainsworth and T.M.Jones 'Software Prefetching for Indirect Memory Accesses: A Microarchitectural Perspective'", 
+  "dict": {
+    "url": "https://github.com/samainsworth/reproduce-tocs2019-paper", 
+    "shared": "git"
+  }, 
+  "data_alias": "reproduce-tocs2019-paper", 
+  "data_uoa": "reproduce-tocs2019-paper"
+}
