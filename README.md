@@ -92,7 +92,7 @@ This file will include the results observed on your machine, and those observed 
 
 While we do not expect absolute values to match, it is expected that overall trends, as shown in the related figures (2,4-7) within the paper, will match up depending on your microarchitecture.
 
-Please note that the reference results on ARM64 systems when running on in-order architectures such at the A53 will still be from the A57, so are not expected to match up directly: you should instead compare ratios given in the paper itself.
+Please note that the reference results on ARM64 systems when running on in-order architectures such as the A53 will still be from the A57, so are not expected to match up directly: you should instead compare ratios given in the paper itself.
 
 If anything in unclear, or any unexpected results occur, please report it to the authors.
 

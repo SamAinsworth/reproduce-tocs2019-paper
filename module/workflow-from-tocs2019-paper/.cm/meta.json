@@ -1,9 +1,45 @@
 {
-  "actions": {}, 
-  "copyright": "See CK COPYRIGHT.txt for copyright details", 
-  "desc": "Experiment workfrom from TOCS2019 paper", 
-  "developer": "Sam Ainsworth", 
-  "developer_email": "sam.ainsworth@cl.cam.ac.uk", 
-  "developer_webpage": "http://www.cl.cam.ac.uk/~sa614/", 
-  "license": "See CK LICENSE.txt for licensing details"
+  "actions": {
+    "dashboard": {
+      "desc": "show experiment dashboard",
+      "for_web": "yes"
+    },
+    "run": {
+      "desc": "run workflow"
+    },
+    "show": {
+      "desc": "show experiment dashboard",
+      "for_web": "yes"
+    }
+  },
+  "copyright": " ",
+  "desc": "Experiment workflow from TOCS2019 paper",
+  "developer": " ",
+  "developer_email": " ",
+  "developer_webpage": " ",
+  "license": " ",
+  "module_deps": {
+    "env": "9b9b3208ac44b891",
+    "graph": "2d41f89bcf32d4d4",
+    "platform": "707ccdfe444cafac",
+    "program": "b0ac08fe1d3c2615",
+    "result": "4cd2850867df4241",
+    "results": "4cd2850867df4241",
+    "wfe": "1e4e644996b7f2a0"
+  },
+  "pre-recorded-result-uoa": "7128071ff148aeb0",
+  "programs_uoa": {
+    "graph500": "ad05db5a449a1908",
+    "hashjoin-ph-2": "c8447d29190a27a0",
+    "hashjoin-ph-8": "8f2f8653142de8c5",
+    "nas-cg": "6f9d25de247149ff",
+    "nas-is": "f08af6dd9e4bb7a4",
+    "randacc": "5c4f6d804d76b152",
+    "hashjoin-ph-2-pthreads": "59348eaa8a32fda0",
+    "nas-is-omp": "84e4994ae68f9f41",
+    "nas-cg-omp": "4364a28e69cd28a4",
+    "kangaroo": "e8933fecd53014b7",
+    "camel": "2fc635034bf0bb4d"
+  },
+  "recorded-result-uoa": "f4207f749e5960ad"
 }

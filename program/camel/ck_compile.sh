@@ -27,7 +27,7 @@ elif [ "${CK_COMPILE_TYPE}" == "man" ] ; then
   echo "*** man (64) ***"
   EXECUTE1="$CK_COMPILER ../camel.c -DPREFETCH=1 -DNUMHASH=${CK_CAMEL_HASHES}  -DFETCHDIST=64 -DSTRIDE -c"
   EXECUTE2=""
-  EXECUTE3="$CK_COMPILER camelswpf.o ${CK_NAS_COMMON}/c_print_results.c ${CK_NAS_COMMON}/c_timers.c ${CK_NAS_COMMON}/wtime.c -lm"
+  EXECUTE3="$CK_COMPILER camel.o ${CK_NAS_COMMON}/c_print_results.c ${CK_NAS_COMMON}/c_timers.c ${CK_NAS_COMMON}/wtime.c -lm"
 
 elif [ "${CK_COMPILE_TYPE}" == "offset" ] ; then
   echo "*** offset (${CK_FETCHDIST}) ***"

@@ -23,21 +23,21 @@ elif [ "${CK_COMPILE_TYPE}" == "auto-nostride" ] ; then
 
 elif [ "${CK_COMPILE_TYPE}" == "man" ] ; then
   echo "*** man (64) ***"
-  EXECUTE1="$CK_COMPILER ../cgswpf.c   -fopenmp=libomp -DFETCHDIST=64 -DSTRIDE -c"
+  EXECUTE1="$CK_COMPILER ../cgsw.c   -fopenmp=libomp -DFETCHDIST=64 -DSTRIDE -c"
   EXECUTE2=""
-  EXECUTE3="$CK_COMPILER cgswpf.o   -fopenmp=libomp ${CK_NAS_COMMON}/c_print_results.c ${CK_NAS_COMMON}/c_timers.c ${CK_NAS_COMMON}/wtime.c ${CK_NAS_COMMON}/c_randdp.c -lm"
+  EXECUTE3="$CK_COMPILER cgsw.o   -fopenmp=libomp ${CK_NAS_COMMON}/c_print_results.c ${CK_NAS_COMMON}/c_timers.c ${CK_NAS_COMMON}/wtime.c ${CK_NAS_COMMON}/c_randdp.c -lm"
 
 elif [ "${CK_COMPILE_TYPE}" == "offset" ] ; then
   echo "*** offset (${CK_FETCHDIST}) ***"
-  EXECUTE1="$CK_COMPILER ../cgswpf.c   -fopenmp=libomp -DFETCHDIST=${CK_FETCHDIST} -DSTRIDE -c"
+  EXECUTE1="$CK_COMPILER ../cgsw.c   -fopenmp=libomp -DFETCHDIST=${CK_FETCHDIST} -DSTRIDE -c"
   EXECUTE2=""
-  EXECUTE3="$CK_COMPILER cgswpf.o   -fopenmp=libomp ${CK_NAS_COMMON}/c_print_results.c ${CK_NAS_COMMON}/c_timers.c ${CK_NAS_COMMON}/wtime.c ${CK_NAS_COMMON}/c_randdp.c -lm"
+  EXECUTE3="$CK_COMPILER cgsw.o   -fopenmp=libomp ${CK_NAS_COMMON}/c_print_results.c ${CK_NAS_COMMON}/c_timers.c ${CK_NAS_COMMON}/wtime.c ${CK_NAS_COMMON}/c_randdp.c -lm"
 
 elif [ "${CK_COMPILE_TYPE}" == "offset-64-nostride" ] ; then
   echo "*** offset-64-nostride ***"
-  EXECUTE1="$CK_COMPILER ../cgswpf.c  -fopenmp=libomp  -DFETCHDIST=64 -c"
+  EXECUTE1="$CK_COMPILER ../cgsw.c  -fopenmp=libomp  -DFETCHDIST=64 -c"
   EXECUTE2=""
-  EXECUTE3="$CK_COMPILER cgswpf.o  -fopenmp=libomp ${CK_NAS_COMMON}/c_print_results.c ${CK_NAS_COMMON}/c_timers.c ${CK_NAS_COMMON}/wtime.c ${CK_NAS_COMMON}/c_randdp.c -lm"
+  EXECUTE3="$CK_COMPILER cgsw.o  -fopenmp=libomp ${CK_NAS_COMMON}/c_print_results.c ${CK_NAS_COMMON}/c_timers.c ${CK_NAS_COMMON}/wtime.c ${CK_NAS_COMMON}/c_randdp.c -lm"
 
 else
   echo "*** no ***"

@@ -410,9 +410,6 @@ def run(i):
 
 
 
-
-
-
     # Reproducing Figure 2 ###################################################################################
     r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['nas-is'],
@@ -1182,16 +1179,19 @@ def run(i):
     return {'return':0}
 
 
-        # Reproducing Figure 12 ###################################################################################
+
+
+
+	# Reproducing Figure 12 ###################################################################################
 
 
     for x in [1, 2, 4]:
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['nas-cg-omp'],
-                  'env':{'CK_COMPILE_TYPE':'no', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'no', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
-                  'title':'Reproducing experiments for Figure 12',
+                  'title':'Reproducing experiments for Figure 12 - ' + str(x) + ' threads',
                   'subtitle':'Validating nas-cg no prefetching:',
                   'key':'figure-12-nas-cg-' + str(x) + "threads" + 'no-prefetching', 'results':results})
         if r['return']>0:
@@ -1200,7 +1200,7 @@ def run(i):
 
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['nas-cg-omp'],
-                  'env':{'CK_COMPILE_TYPE':'auto', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'auto', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1212,7 +1212,7 @@ def run(i):
 
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['nas-cg-omp'],
-                  'env':{'CK_COMPILE_TYPE':'man', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'man', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1226,7 +1226,7 @@ def run(i):
 
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['nas-is-omp'],
-                  'env':{'CK_COMPILE_TYPE':'no', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'no', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1238,7 +1238,7 @@ def run(i):
 
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['nas-is-omp'],
-                  'env':{'CK_COMPILE_TYPE':'auto', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'auto', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1250,7 +1250,7 @@ def run(i):
 
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['nas-is-omp'],
-                  'env':{'CK_COMPILE_TYPE':'man', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'man', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1264,7 +1264,7 @@ def run(i):
 
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['hashjoin-ph-2-pthreads'],
-                  'env':{'CK_COMPILE_TYPE':'no', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'no', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1276,7 +1276,7 @@ def run(i):
 
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['hashjoin-ph-2-pthreads'],
-                  'env':{'CK_COMPILE_TYPE':'auto', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'auto', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1288,7 +1288,7 @@ def run(i):
 
         r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['hashjoin-ph-2-pthreads'],
-                  'env':{'CK_COMPILE_TYPE':'man', OMP_NUM_THREADS=str(x)},
+                  'env':{'CK_COMPILE_TYPE':'man', 'OMP_NUM_THREADS':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1300,7 +1300,7 @@ def run(i):
 
     
     
-        # Reproducing Figure 13 ###################################################################################
+# Reproducing Figure 13 ###################################################################################
         
     for x in range(2,11):   
         for y in [0, 1, x-1]: 
@@ -1331,7 +1331,7 @@ def run(i):
 
             r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['kangaroo'],
-                  'env':{'CK_COMPILE_TYPE':'man', 'CK_KANGAROO_ARRAYS':str(x), 'CK_KANGAROO_NUMPFS':str(x > 8? 8 : x), 'CK_KANGAROO_HASHES':str(y)},
+                  'env':{'CK_COMPILE_TYPE':'man', 'CK_KANGAROO_ARRAYS':str(x), 'CK_KANGAROO_NUMPFS':str(8 if x > 8 else x), 'CK_KANGAROO_HASHES':str(y)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
@@ -1435,10 +1435,10 @@ def run(i):
 
 
     for x in range(2,11):   
-        for y in ['SMALLEST','SMALL','LARGE']: 
+        for y in [0,1,3]: 
             r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['kangaroo'],
-                  'env':{'CK_COMPILE_TYPE':'no', 'CK_KANGAROO_ARRAYS':str(x), 'CK_KANGAROO_NUMPFS':'0', 'CK_KANGAROO_HASHES':'0', y},
+                  'env':{'CK_COMPILE_TYPE':'no', 'CK_KANGAROO_ARRAYS':str(x), 'CK_KANGAROO_NUMPFS':'0', 'CK_KANGAROO_HASHES':'0', 'CK_KANGAROO_SIZE':str(y)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 18',
@@ -1451,11 +1451,11 @@ def run(i):
             for z in range(1,x):
                 r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['kangaroo'],
-                  'env':{'CK_COMPILE_TYPE':'man', 'CK_KANGAROO_ARRAYS':str(x), 'CK_KANGAROO_NUMPFS':str(z), 'CK_KANGAROO_HASHES':'0'},
+                  'env':{'CK_COMPILE_TYPE':'man', 'CK_KANGAROO_ARRAYS':str(x), 'CK_KANGAROO_NUMPFS':str(z), 'CK_KANGAROO_HASHES':'0',  'CK_KANGAROO_SIZE':str(y)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
-                  'subtitle':'Validating kangaroo manual prefetching: ' + str(x) + "-" + str(y),
+                  'subtitle':'Validating kangaroo manual prefetching: ' + str(x) + "-" + str(y) + "-" + str(z),
                   'key':'figure-18-'   + str(x) + "-" + str(y) + "-" + str(z) + 'man-prefetching', 'results':results})
                 if r['return']>0:
                     log({'string':''})
@@ -1477,7 +1477,7 @@ def run(i):
                 log({'string':'Experiment failed ('+r['error']+')'})
 
             r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
-                  'program_uoa':cfg['programs_uoa']['kangaroo'],
+                  'program_uoa':cfg['programs_uoa']['camel'],
                   'env':{'CK_COMPILE_TYPE':'man', 'CK_CAMEL_HASHES':str(x)},
                   'deps':deps,
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
@@ -1488,6 +1488,7 @@ def run(i):
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
             
+
 
 ##############################################################################
 # open PLUTON dashboard

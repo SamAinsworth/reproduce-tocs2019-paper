@@ -8,16 +8,21 @@
 /*************/
 /*  CLASS B  */
 /*************/
-#ifdef SMALLEST
+
+#ifndef KANG_SIZE
+#define KANG_SIZE 2
+#endif
+
+#if KANG_SIZE==0
 #define SIZE 17
-#elif defined SMALL
+#elif  KANG_SIZE==1
 #define SIZE 22
-#elif defined BIG
+#elif  KANG_SIZE==3
 #define SIZE 28
 #else
 #define SIZE 25
 #endif
-//25 is default = 128MB. 18 = 1MB. 22 = 16MB.
+//25 is default = 128MB. 17 = 512kB. 22 = 16MB.
 
 
 #define  TOTAL_KEYS_LOG_2    SIZE
