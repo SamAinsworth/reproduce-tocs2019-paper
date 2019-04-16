@@ -232,7 +232,7 @@ def experiment(i):
           results[key]['stmax']=stmax
           results[key]['stmean']=stmean
 
-          dd['tags']=["cgo2017","sw-prefetch"]
+          dd['tags']=["tocs2019","sw-prefetch"]
 
           # Update result entry
           r=ck.access({'action':'update',
@@ -264,7 +264,7 @@ def experiment(i):
           dlocal[os_abi][key]['stmax']=stmax
           dlocal[os_abi][key]['stmean']=stmean
 
-          dlocal['tags']=["cgo2017","sw-prefetch"]
+          dlocal['tags']=["tocs2019","sw-prefetch"]
 
           r=ck.access({'action':'update',
                        'module_uoa':cfg['module_deps']['result'],
@@ -1509,7 +1509,7 @@ def dashboard(i):
     i['action']='browser'
     i['cid']=''
     i['module_uoa']=''
-    i['template']='cgo2017'
+    i['template']='tocs2019'
 
     return ck.access(i)
 

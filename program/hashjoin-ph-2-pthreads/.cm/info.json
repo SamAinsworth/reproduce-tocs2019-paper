@@ -3,8 +3,8 @@
   "backup_module_uid": "b0ac08fe1d3c2615", 
   "backup_module_uoa": "program", 
   "control": {
-    "author": "cTuning foundation", 
-    "author_email": "admin@cTuning.org", 
+    "author": "Sam Ainsworth", 
+    "author_email": "sam.ainsworth@cl.cam.ac.uk", 
     "author_webpage": "http://cTuning.org", 
     "copyright": "See CK COPYRIGHT.txt for copyright details", 
     "engine": "CK", 
