@@ -1,0 +1,34 @@
+{
+  "aarch64": {}, 
+  "tags": [
+    "tocs2019", 
+    "sw-prefetch"
+  ], 
+  "x86_64": {
+    "figure-2-nas-is-no-prefetching": {
+      "stmax": "1.6500", 
+      "stmean": "1.6333", 
+      "stmin": "1.6200"
+    }, 
+    "figure-2-nas-is-offset-2": {
+      "stmax": "1.9600", 
+      "stmean": "1.9333", 
+      "stmin": "1.8800"
+    }, 
+    "figure-2-nas-is-offset-2048": {
+      "stmax": "1.6300", 
+      "stmean": "1.5333", 
+      "stmin": "1.4800"
+    }, 
+    "figure-2-nas-is-offset-64": {
+      "stmax": "1.2500", 
+      "stmean": "1.1967", 
+      "stmin": "1.1500"
+    }, 
+    "figure-2-nas-is-offset-64-nostride": {
+      "stmax": "1.5200", 
+      "stmean": "1.4533", 
+      "stmin": "1.3600"
+    }
+  }
+}
