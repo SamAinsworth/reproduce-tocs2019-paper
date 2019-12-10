@@ -116,7 +116,7 @@ struct SwPrefetchPass : FunctionPass, InstVisitor<SwPrefetchPass>
 
         // Don't hoist instructions with loop-variant operands.
         for (Value *Operand : I->operands())
-            if(Instruction* i = dyn_cast<Instruction>(Operand)) if (!makeLoopInvariantSpec(i, Changed, L)) {
+            if(Operand) if(Instruction* i = dyn_cast<Instruction>(Operand)) if (!makeLoopInvariantSpec(i, Changed, L)) {
                     Changed = false;
                     return false;
                 }
@@ -142,6 +142,8 @@ struct SwPrefetchPass : FunctionPass, InstVisitor<SwPrefetchPass>
    // Test if the value is already loop-invariant.
    if (L->isLoopInvariant(V))
      return true;
+     
+   if(!V) return true;  
    
    Instruction* I = dyn_cast<Instruction>(V);
    if(!I) return false;  
@@ -297,6 +299,7 @@ struct SwPrefetchPass : FunctionPass, InstVisitor<SwPrefetchPass>
         // Loop over all of the PHI nodes, looking for a canonical indvar.
         for (BasicBlock::iterator I = H->begin(); isa<PHINode>(I); ++I) {
             PHINode *PN = cast<PHINode>(I);
+            if(!PN->getIncomingValueForBlock(Backedge)) return nullptr;
             if (Instruction *Inc =
                         dyn_cast<Instruction>(PN->getIncomingValueForBlock(Backedge)))
                 if (Inc->getOpcode() == Instruction::Add &&
@@ -545,7 +548,7 @@ struct SwPrefetchPass : FunctionPass, InstVisitor<SwPrefetchPass>
 
 
             }
-            else if(Instruction* k = dyn_cast<Instruction>(v->get())) {
+            else if(v->get()) if(Instruction* k = dyn_cast<Instruction>(v->get())) {
 
                 if(!((!p) || L != nullptr)) continue;
 
@@ -805,7 +808,7 @@ struct SwPrefetchPass : FunctionPass, InstVisitor<SwPrefetchPass>
                         size = getArrayOrAllocSize(firstLoad);
                     }
                     assert(size);
-                    assert(size->getType()->isIntegerTy());
+                    assert(size->getType()->isIntegerTy() || IGNORE_SIZE);
                     if(loads< 2 || !size || !size->getType()->isIntegerTy() || IGNORE_SIZE) {
                         Transforms.insert(std::pair<Instruction*,Instruction*>(z,n));
                         continue;
@@ -872,10 +875,12 @@ struct SwPrefetchPass : FunctionPass, InstVisitor<SwPrefetchPass>
                     Function *fun = Intrinsic::getDeclaration(F.getParent(), Intrinsic::prefetch);
 
                     assert(fun);
+                    assert(Loads[x]->getOperand(0));
 
                     Instruction* oldGep = dyn_cast<Instruction>(Loads[x]->getOperand(0));
                     assert(oldGep);
 
+					assert(Transforms.lookup(oldGep));
                     Instruction* gep = dyn_cast<Instruction>(Transforms.lookup(oldGep));
                     assert(gep);
                     modified = true;
@@ -915,10 +920,15 @@ struct SwPrefetchPass : FunctionPass, InstVisitor<SwPrefetchPass>
 
 
                 } else if(PHINode * pn = dyn_cast<PHINode>(z)) {
-
+z
                     Value* v = getOddPhiFirst(LI.getLoopFor(pn->getParent()),pn);
-                    if(Instruction* ins = dyn_cast<Instruction>(v)) v = Transforms.lookup(ins);
-                    Transforms.insert(std::pair<Instruction*,Value*>(z,v));
+                    //assert(v);
+                    if(v) {
+						if(Instruction* ins = dyn_cast<Instruction>(v)) v = Transforms.lookup(ins);
+						Transforms.insert(std::pair<Instruction*,Value*>(z,v));
+					} else {
+						Transforms.insert(std::pair<Instruction*,Value*>(z,z));
+					}
                 }
                 else {
 
@@ -928,6 +938,7 @@ struct SwPrefetchPass : FunctionPass, InstVisitor<SwPrefetchPass>
                     int64_t size = n->getNumOperands();
                     for(int64_t x = 0; x<size; x++) {
                         Value* v = u[x].get();
+                        assert(v);
                         if(Instruction* t = dyn_cast<Instruction>(v)) {
                             if(Transforms.count(t)) {
                                 n->setOperand(x,Transforms.lookup(t));

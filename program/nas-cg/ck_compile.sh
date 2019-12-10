@@ -2,7 +2,7 @@
 
 rm -f a.out *.o *.ll
 
-CK_NAS_COMMON=`ck find program:42f28f884842c988`
+CK_NAS_COMMON=`ck find program:0338a648268fa846`
 
 CK_COMPILER="$CK_CC $CK_COMPILER_FLAGS_OBLIGATORY $CK_PROG_COMPILER_FLAGS"
 
