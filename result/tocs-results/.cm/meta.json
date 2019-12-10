@@ -6,29 +6,454 @@
   ], 
   "x86_64": {
     "figure-2-nas-is-no-prefetching": {
-      "stmax": "1.6500", 
-      "stmean": "1.6333", 
-      "stmin": "1.6200"
-    }, 
-    "figure-2-nas-is-offset-2": {
-      "stmax": "1.9600", 
-      "stmean": "1.9333", 
-      "stmin": "1.8800"
-    }, 
-    "figure-2-nas-is-offset-2048": {
-      "stmax": "1.6300", 
-      "stmean": "1.5333", 
+      "stmax": "1.7800", 
+      "stmean": "1.5933", 
       "stmin": "1.4800"
     }, 
+    "figure-2-nas-is-offset-2": {
+      "stmax": "2.4800", 
+      "stmean": "2.2433", 
+      "stmin": "2.0500"
+    }, 
+    "figure-2-nas-is-offset-2048": {
+      "stmax": "1.9600", 
+      "stmean": "1.7133", 
+      "stmin": "1.5900"
+    }, 
     "figure-2-nas-is-offset-64": {
-      "stmax": "1.2500", 
-      "stmean": "1.1967", 
-      "stmin": "1.1500"
+      "stmax": "1.2200", 
+      "stmean": "1.1800", 
+      "stmin": "1.1300"
     }, 
     "figure-2-nas-is-offset-64-nostride": {
-      "stmax": "1.5200", 
-      "stmean": "1.4533", 
-      "stmin": "1.3600"
+      "stmax": "1.8900", 
+      "stmean": "1.6433", 
+      "stmin": "1.3200"
+    }, 
+    "figure-4-graph500-s16-auto": {
+      "stmax": "0.0042", 
+      "stmean": "0.0040", 
+      "stmin": "0.0038"
+    }, 
+    "figure-4-graph500-s16-man-inorder": {
+      "stmax": "0.0042", 
+      "stmean": "0.0039", 
+      "stmin": "0.0037"
+    }, 
+    "figure-4-graph500-s16-man-outoforder": {
+      "stmax": "0.0038", 
+      "stmean": "0.0036", 
+      "stmin": "0.0033"
+    }, 
+    "figure-4-graph500-s16-no-prefetching": {
+      "stmax": "0.0043", 
+      "stmean": "0.0043", 
+      "stmin": "0.0043"
+    }, 
+    "figure-4-graph500-s21-auto": {
+      "stmax": "0.4100", 
+      "stmean": "0.3987", 
+      "stmin": "0.3911"
+    }, 
+    "figure-4-graph500-s21-man-inorder": {
+      "stmax": "0.3721", 
+      "stmean": "0.3667", 
+      "stmin": "0.3600"
+    }, 
+    "figure-4-graph500-s21-man-outoforder": {
+      "stmax": "0.3421", 
+      "stmean": "0.3259", 
+      "stmin": "0.3103"
+    }, 
+    "figure-4-graph500-s21-no-prefetching": {
+      "stmax": "0.3892", 
+      "stmean": "0.3712", 
+      "stmin": "0.3603"
+    }, 
+    "figure-4-hashjoin-ph-2-auto": {
+      "stmax": "0.1935", 
+      "stmean": "0.1924", 
+      "stmin": "0.1913"
+    }, 
+    "figure-4-hashjoin-ph-2-man": {
+      "stmax": "0.2045", 
+      "stmean": "0.1956", 
+      "stmin": "0.1891"
+    }, 
+    "figure-4-hashjoin-ph-2-no-prefetching": {
+      "stmax": "0.3861", 
+      "stmean": "0.3854", 
+      "stmin": "0.3845"
+    }, 
+    "figure-4-hashjoin-ph-8-auto": {
+      "stmax": "1.4071", 
+      "stmean": "1.3795", 
+      "stmin": "1.3652"
+    }, 
+    "figure-4-hashjoin-ph-8-man": {
+      "stmax": "0.7095", 
+      "stmean": "0.7078", 
+      "stmin": "0.7053"
+    }, 
+    "figure-4-hashjoin-ph-8-no-prefetching": {
+      "stmax": "1.6611", 
+      "stmean": "1.5892", 
+      "stmin": "1.5524"
+    }, 
+    "figure-4-nas-cg-auto": {
+      "stmax": "11.9800", 
+      "stmean": "11.6000", 
+      "stmin": "11.3700"
+    }, 
+    "figure-4-nas-cg-man": {
+      "stmax": "12.2200", 
+      "stmean": "11.9633", 
+      "stmin": "11.7900"
+    }, 
+    "figure-4-nas-cg-no-prefetching": {
+      "stmax": "11.5500", 
+      "stmean": "11.5133", 
+      "stmin": "11.4700"
+    }, 
+    "figure-4-nas-is-auto": {
+      "stmax": "1.3100", 
+      "stmean": "1.1933", 
+      "stmin": "1.1300"
+    }, 
+    "figure-4-nas-is-man": {
+      "stmax": "1.2000", 
+      "stmean": "1.1600", 
+      "stmin": "1.1200"
+    }, 
+    "figure-4-nas-is-no-prefetching": {
+      "stmax": "1.8700", 
+      "stmean": "1.6133", 
+      "stmin": "1.4700"
+    }, 
+    "figure-4-randacc-auto": {
+      "stmax": "0.4566", 
+      "stmean": "0.4544", 
+      "stmin": "0.4529"
+    }, 
+    "figure-4-randacc-man": {
+      "stmax": "0.4909", 
+      "stmean": "0.4516", 
+      "stmin": "0.4277"
+    }, 
+    "figure-4-randacc-no-prefetching": {
+      "stmax": "0.6054", 
+      "stmean": "0.5901", 
+      "stmin": "0.5787"
+    }, 
+    "figure-5-graph500-s16-auto": {
+      "stmax": "0.0042", 
+      "stmean": "0.0040", 
+      "stmin": "0.0038"
+    }, 
+    "figure-5-graph500-s16-auto-nostride": {
+      "stmax": "0.0047", 
+      "stmean": "0.0045", 
+      "stmin": "0.0043"
+    }, 
+    "figure-5-graph500-s16-no-prefetching": {
+      "stmax": "0.0054", 
+      "stmean": "0.0052", 
+      "stmin": "0.0050"
+    }, 
+    "figure-5-graph500-s21-auto": {
+      "stmax": "0.4119", 
+      "stmean": "0.4011", 
+      "stmin": "0.3941"
+    }, 
+    "figure-5-graph500-s21-auto-nostride": {
+      "stmax": "0.3701", 
+      "stmean": "0.3672", 
+      "stmin": "0.3633"
+    }, 
+    "figure-5-graph500-s21-no-prefetching": {
+      "stmax": "0.3842", 
+      "stmean": "0.3727", 
+      "stmin": "0.3648"
+    }, 
+    "figure-5-hashjoin-ph-2-auto": {
+      "stmax": "0.1954", 
+      "stmean": "0.1945", 
+      "stmin": "0.1929"
+    }, 
+    "figure-5-hashjoin-ph-2-auto-nostride": {
+      "stmax": "0.3897", 
+      "stmean": "0.3882", 
+      "stmin": "0.3873"
+    }, 
+    "figure-5-hashjoin-ph-2-no-prefetching": {
+      "stmax": "0.4752", 
+      "stmean": "0.4263", 
+      "stmin": "0.4016"
+    }, 
+    "figure-5-hashjoin-ph-8-auto": {
+      "stmax": "1.5069", 
+      "stmean": "1.4410", 
+      "stmin": "1.4065"
+    }, 
+    "figure-5-hashjoin-ph-8-auto-nostride": {
+      "stmax": "1.7422", 
+      "stmean": "1.6503", 
+      "stmin": "1.6038"
+    }, 
+    "figure-5-hashjoin-ph-8-no-prefetching": {
+      "stmax": "1.6896", 
+      "stmean": "1.6582", 
+      "stmin": "1.6424"
+    }, 
+    "figure-5-nas-cg-auto": {
+      "stmax": "11.6800", 
+      "stmean": "11.5133", 
+      "stmin": "11.4200"
+    }, 
+    "figure-5-nas-cg-auto-nostride": {
+      "stmax": "11.4200", 
+      "stmean": "11.3233", 
+      "stmin": "11.1800"
+    }, 
+    "figure-5-nas-cg-no-prefetching": {
+      "stmax": "11.3700", 
+      "stmean": "11.2933", 
+      "stmin": "11.2400"
+    }, 
+    "figure-5-nas-is-auto": {
+      "stmax": "1.2500", 
+      "stmean": "1.1800", 
+      "stmin": "1.1000"
+    }, 
+    "figure-5-nas-is-auto-nostride": {
+      "stmax": "1.8900", 
+      "stmean": "1.7067", 
+      "stmin": "1.4800"
+    }, 
+    "figure-5-nas-is-no-prefetching": {
+      "stmax": "1.8100", 
+      "stmean": "1.6467", 
+      "stmin": "1.5400"
+    }, 
+    "figure-5-randacc-auto": {
+      "stmax": "0.5126", 
+      "stmean": "0.4755", 
+      "stmin": "0.4450"
+    }, 
+    "figure-5-randacc-auto-nostride": {
+      "stmax": "0.6669", 
+      "stmean": "0.6378", 
+      "stmin": "0.6003"
+    }, 
+    "figure-5-randacc-no-prefetching": {
+      "stmax": "0.6031", 
+      "stmean": "0.5893", 
+      "stmin": "0.5792"
+    }, 
+    "figure-6-hashjoin-ph-2-no-prefetching": {
+      "stmax": "0.4064", 
+      "stmean": "0.3926", 
+      "stmin": "0.3842"
+    }, 
+    "figure-6-hashjoin-ph-2-prefetching-dist-128": {
+      "stmax": "0.1930", 
+      "stmean": "0.1924", 
+      "stmin": "0.1921"
+    }, 
+    "figure-6-hashjoin-ph-2-prefetching-dist-16": {
+      "stmax": "0.2329", 
+      "stmean": "0.2182", 
+      "stmin": "0.2101"
+    }, 
+    "figure-6-hashjoin-ph-2-prefetching-dist-2": {
+      "stmax": "0.3527", 
+      "stmean": "0.3434", 
+      "stmin": "0.3376"
+    }, 
+    "figure-6-hashjoin-ph-2-prefetching-dist-256": {
+      "stmax": "0.2116", 
+      "stmean": "0.2105", 
+      "stmin": "0.2095"
+    }, 
+    "figure-6-hashjoin-ph-2-prefetching-dist-32": {
+      "stmax": "0.1941", 
+      "stmean": "0.1925", 
+      "stmin": "0.1917"
+    }, 
+    "figure-6-hashjoin-ph-2-prefetching-dist-4": {
+      "stmax": "0.3353", 
+      "stmean": "0.3143", 
+      "stmin": "0.3037"
+    }, 
+    "figure-6-hashjoin-ph-2-prefetching-dist-64": {
+      "stmax": "0.1956", 
+      "stmean": "0.1912", 
+      "stmin": "0.1889"
+    }, 
+    "figure-6-hashjoin-ph-2-prefetching-dist-8": {
+      "stmax": "0.2585", 
+      "stmean": "0.2571", 
+      "stmin": "0.2561"
+    }, 
+    "figure-6-nas-cg-no-prefetching": {
+      "stmax": "11.6900", 
+      "stmean": "11.5333", 
+      "stmin": "11.3400"
+    }, 
+    "figure-6-nas-cg-prefetching-dist-128": {
+      "stmax": "12.0000", 
+      "stmean": "11.6367", 
+      "stmin": "11.2600"
+    }, 
+    "figure-6-nas-cg-prefetching-dist-16": {
+      "stmax": "11.9700", 
+      "stmean": "11.8367", 
+      "stmin": "11.5800"
+    }, 
+    "figure-6-nas-cg-prefetching-dist-2": {
+      "stmax": "12.7300", 
+      "stmean": "12.6667", 
+      "stmin": "12.5700"
+    }, 
+    "figure-6-nas-cg-prefetching-dist-256": {
+      "stmax": "12.1900", 
+      "stmean": "12.0933", 
+      "stmin": "12.0400"
+    }, 
+    "figure-6-nas-cg-prefetching-dist-32": {
+      "stmax": "11.9300", 
+      "stmean": "11.6933", 
+      "stmin": "11.5100"
+    }, 
+    "figure-6-nas-cg-prefetching-dist-4": {
+      "stmax": "12.8000", 
+      "stmean": "12.5967", 
+      "stmin": "12.4700"
+    }, 
+    "figure-6-nas-cg-prefetching-dist-64": {
+      "stmax": "11.7500", 
+      "stmean": "11.5867", 
+      "stmin": "11.3000"
+    }, 
+    "figure-6-nas-cg-prefetching-dist-8": {
+      "stmax": "12.3400", 
+      "stmean": "12.3333", 
+      "stmin": "12.3200"
+    }, 
+    "figure-6-nas-is-no-prefetching": {
+      "stmax": "1.9400", 
+      "stmean": "1.8467", 
+      "stmin": "1.6600"
+    }, 
+    "figure-6-nas-is-prefetching-dist-128": {
+      "stmax": "1.2200", 
+      "stmean": "1.1867", 
+      "stmin": "1.1400"
+    }, 
+    "figure-6-nas-is-prefetching-dist-16": {
+      "stmax": "1.5300", 
+      "stmean": "1.4933", 
+      "stmin": "1.4700"
+    }, 
+    "figure-6-nas-is-prefetching-dist-2": {
+      "stmax": "1.8100", 
+      "stmean": "1.7867", 
+      "stmin": "1.7600"
+    }, 
+    "figure-6-nas-is-prefetching-dist-256": {
+      "stmax": "1.1800", 
+      "stmean": "1.1633", 
+      "stmin": "1.1500"
+    }, 
+    "figure-6-nas-is-prefetching-dist-32": {
+      "stmax": "1.5800", 
+      "stmean": "1.4000", 
+      "stmin": "1.3000"
+    }, 
+    "figure-6-nas-is-prefetching-dist-4": {
+      "stmax": "1.7400", 
+      "stmean": "1.7300", 
+      "stmin": "1.7200"
+    }, 
+    "figure-6-nas-is-prefetching-dist-64": {
+      "stmax": "1.3900", 
+      "stmean": "1.2567", 
+      "stmin": "1.1500"
+    }, 
+    "figure-6-nas-is-prefetching-dist-8": {
+      "stmax": "1.6700", 
+      "stmean": "1.6467", 
+      "stmin": "1.6300"
+    }, 
+    "figure-6-randacc-no-prefetching": {
+      "stmax": "0.7118", 
+      "stmean": "0.6835", 
+      "stmin": "0.6286"
+    }, 
+    "figure-6-randacc-prefetching-dist-128": {
+      "stmax": "0.4245", 
+      "stmean": "0.4211", 
+      "stmin": "0.4186"
+    }, 
+    "figure-6-randacc-prefetching-dist-16": {
+      "stmax": "0.4839", 
+      "stmean": "0.4751", 
+      "stmin": "0.4603"
+    }, 
+    "figure-6-randacc-prefetching-dist-2": {
+      "stmax": "0.6540", 
+      "stmean": "0.6223", 
+      "stmin": "0.5974"
+    }, 
+    "figure-6-randacc-prefetching-dist-256": {
+      "stmax": "0.4863", 
+      "stmean": "0.4738", 
+      "stmin": "0.4667"
+    }, 
+    "figure-6-randacc-prefetching-dist-32": {
+      "stmax": "0.4338", 
+      "stmean": "0.4299", 
+      "stmin": "0.4267"
+    }, 
+    "figure-6-randacc-prefetching-dist-4": {
+      "stmax": "0.6731", 
+      "stmean": "0.6259", 
+      "stmin": "0.5800"
+    }, 
+    "figure-6-randacc-prefetching-dist-64": {
+      "stmax": "8.5224", 
+      "stmean": "3.1164", 
+      "stmin": "0.4114"
+    }, 
+    "figure-6-randacc-prefetching-dist-8": {
+      "stmax": "0.5121", 
+      "stmean": "0.5088", 
+      "stmin": "0.5067"
+    }, 
+    "figure-7-hashjoin-ph-8-no-prefetching": {
+      "stmax": "1.6802", 
+      "stmean": "1.6411", 
+      "stmin": "1.5682"
+    }, 
+    "figure-7-hashjoin-ph-8-prefetching-elements-1": {
+      "stmax": "1.4361", 
+      "stmean": "1.4114", 
+      "stmin": "1.3674"
+    }, 
+    "figure-7-hashjoin-ph-8-prefetching-elements-2": {
+      "stmax": "1.0382", 
+      "stmean": "1.0005", 
+      "stmin": "0.9691"
+    }, 
+    "figure-7-hashjoin-ph-8-prefetching-elements-3": {
+      "stmax": "0.8131", 
+      "stmean": "0.7652", 
+      "stmin": "0.7034"
+    }, 
+    "figure-7-hashjoin-ph-8-prefetching-elements-4": {
+      "stmax": "1.1996", 
+      "stmean": "1.1677", 
+      "stmin": "1.1449"
     }
   }
 }

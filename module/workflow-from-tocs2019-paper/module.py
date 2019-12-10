@@ -1176,7 +1176,7 @@ def run(i):
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
 
-    return {'return':0}
+
 
 
     # Reproducing Figure 12 ###################################################################################
