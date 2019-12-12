@@ -1308,7 +1308,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 13',
                   'subtitle':'Validating kangaroo no prefetching: '  + str(x) + "-" + str(y),
-                  'key':'figure-13-'   + str(x) + "-" + str(y) + '-no-prefetching', 'results':results})
+                  'key':'figure-13-'   + str(x) + '-no-prefetching', 'results':results})
             if r['return']>0:
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
@@ -1347,7 +1347,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 14',
                   'subtitle':'Validating kangaroo no prefetching: '  + str(x),
-                  'key':'figure-14-'   + str(x) + "-" + str(y) + '-no-prefetching', 'results':results})    
+                  'key':'figure-14-'   + str(x) + '-no-prefetching', 'results':results})    
         if r['return']>0:
             log({'string':''})
             log({'string':'Experiment failed ('+r['error']+')'})
@@ -1373,7 +1373,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 15',
                   'subtitle':'Validating kangaroo no prefetching: '  + str(x),
-                  'key':'figure-15-'   + str(x) + "-" + str(y) + '-no-prefetching', 'results':results})    
+                  'key':'figure-15-'   + str(x) + '-no-prefetching', 'results':results})    
         if r['return']>0:
             log({'string':''})
             log({'string':'Experiment failed ('+r['error']+')'})
@@ -1399,7 +1399,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 17',
                   'subtitle':'Validating kangaroo no prefetching: '  + str(x),
-                  'key':'figure-17-'   + str(x) + "-" + str(y) + '-no-prefetching', 'results':results})    
+                  'key':'figure-17-'   + str(x) + '-no-prefetching', 'results':results})    
         if r['return']>0:
             log({'string':''})
             log({'string':'Experiment failed ('+r['error']+')'})
@@ -1440,7 +1440,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 18',
                   'subtitle':'Validating kangaroo no prefetching: '  + str(x) + "-" + str(y),
-                  'key':'figure-18-'   + str(x) + "-" + str(y) + '-no-prefetching', 'results':results})
+                  'key':'figure-18-'   + str(x) + '-no-prefetching', 'results':results})
             if r['return']>0:
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
