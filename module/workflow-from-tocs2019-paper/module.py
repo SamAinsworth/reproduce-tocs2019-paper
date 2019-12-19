@@ -1308,7 +1308,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 13',
                   'subtitle':'Validating kangaroo no prefetching: '  + str(x) + "-" + str(y),
-                  'key':'figure-13-'   + str(x) + '-no-prefetching', 'results':results})
+                  'key':'figure-13-'   + str(x) + "-" + str(y) + '-no-prefetching', 'results':results})
             if r['return']>0:
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
@@ -1320,7 +1320,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 13',
                   'subtitle':'Validating kangaroo auto prefetching: ' + str(x) + "-" + str(y),
-                  'key':'figure-13-'   + str(x) + "-" + str(y) + 'auto-prefetching', 'results':results})
+                  'key':'figure-13-'   + str(x) + "-" + str(y) + '-auto-prefetching', 'results':results})
             if r['return']>0:
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})	   
@@ -1333,7 +1333,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
                   'subtitle':'Validating kangaroo manual prefetching: ' + str(x) + "-" + str(y),
-                  'key':'figure-13-'   + str(x) + "-" + str(y) + 'man-prefetching', 'results':results})
+                  'key':'figure-13-'   + str(x) + "-" + str(y) + '-man-prefetching', 'results':results})
             if r['return']>0:
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
@@ -1428,11 +1428,18 @@ def run(i):
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
 
+
+
+
 # Reproducing Figure 18 ###################################################################################
 
+    meminfo = dict((i.split()[0].rstrip(':'),int(i.split()[1])) for i in open('/proc/meminfo').readlines())
+    mem_kib = meminfo['MemTotal']
 
     for x in range(2,11):   
         for y in [0,1,3]: 
+            if mem_kib < 16777216 and y == 3:
+              continue
             r=experiment({'host_os':hos, 'target_os':tos, 'device_id':tdid, 'out':oo,
                   'program_uoa':cfg['programs_uoa']['kangaroo'],
                   'env':{'CK_COMPILE_TYPE':'no', 'CK_KANGAROO_ARRAYS':str(x), 'CK_KANGAROO_NUMPFS':'0', 'CK_KANGAROO_HASHES':'0', 'CK_KANGAROO_SIZE':str(y)},
@@ -1440,7 +1447,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'Reproducing experiments for Figure 18',
                   'subtitle':'Validating kangaroo no prefetching: '  + str(x) + "-" + str(y),
-                  'key':'figure-18-'   + str(x) + '-no-prefetching', 'results':results})
+                  'key':'figure-18-'   + str(x)+ "-" + str(y) + '-no-prefetching', 'results':results})
             if r['return']>0:
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
@@ -1480,7 +1487,7 @@ def run(i):
                   'quiet':q, 'record':rec, 'record_repo_uoa':rruid, 'record_data_uoa':rduid, 'os_abi':os_abi,
                   'title':'',
                   'subtitle':'Validating camel manual prefetching: ' + str(x),
-                  'key':'figure-21-'   + str(x) + 'man-prefetching', 'results':results})
+                  'key':'figure-21-'   + str(x) + '-man-prefetching', 'results':results})
             if r['return']>0:
                 log({'string':''})
                 log({'string':'Experiment failed ('+r['error']+')'})
@@ -1670,6 +1677,18 @@ def show(i):
                       if ext.startswith(b):
                          bench=b
                          break
+                         
+                  if ('threads') in ext:
+                     bench = ext.rstrip('no-prefetching')
+                     bench = bench.rstrip('auto')
+                     bench = bench.rstrip('man')
+                         
+                  
+                  if bench == '':
+                     bench = ext.rsplit('-', 1)[0]
+                     bench = bench.rsplit('-', 1)[0]
+#                     if(not ext.endswith('no-prefetching')):
+ #                      bench = bench.rsplit('-', 1)[0]       
 
                   if fig not in noes:
                      noes[fig]={}
@@ -1696,6 +1715,19 @@ def show(i):
                       if ext.startswith(b):
                          bench=b
                          break
+                         
+                  if ('threads') in ext:
+                     bench = ext.rstrip('no-prefetching')
+                     bench = bench.rstrip('auto')
+                     bench = bench.rstrip('man')
+                         
+                  
+                  if bench == '':
+                     bench = ext.rsplit('-', 1)[0]
+                     bench = bench.rsplit('-', 1)[0]
+ #                    if(not ext.endswith('no-prefetching')):
+ #                      bench = bench.rsplit('-', 1)[0]
+
 
                   if fig not in figures:
                      figures[fig]={}
