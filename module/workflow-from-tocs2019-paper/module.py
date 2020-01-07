@@ -1682,11 +1682,15 @@ def show(i):
                      bench = ext.rstrip('no-prefetching')
                      bench = bench.rstrip('auto')
                      bench = bench.rstrip('man')
-                         
+                  
+                  if(ext.endswith('-16')):
+                     bench = ext.split('-', 1)[0]
+                  if(ext.endswith('-64')):
+                     bench = ext.split('-', 1)[0]                     
                   
                   if bench == '':
                      bench = ext.rsplit('-', 1)[0]
-                     bench = bench.rsplit('-', 1)[0]
+                     bench = bench.rsplit('-', 1)[0]  
 #                     if(not ext.endswith('no-prefetching')):
  #                      bench = bench.rsplit('-', 1)[0]       
 
@@ -1720,7 +1724,11 @@ def show(i):
                      bench = ext.rstrip('no-prefetching')
                      bench = bench.rstrip('auto')
                      bench = bench.rstrip('man')
-                         
+
+                  if(ext.endswith('-16')):
+                     bench = ext.split('-', 1)[0]
+                  if(ext.endswith('-64')):
+                     bench = ext.split('-', 1)[0]
                   
                   if bench == '':
                      bench = ext.rsplit('-', 1)[0]
